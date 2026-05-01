@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Rental Coverage Score Report | CoverageFit</title>
+<meta name="description" content="A personalized Rental Coverage Score Report from CoverageFit." />
+
+<style>
+
+
+:root {
+  --blue:#003a8f;
+  --blue-2:#124ec4;
+  --blue-dark:#071936;
+  --red:#e31837;
+  --green:#15803d;
+  --yellow:#b45309;
+  --text:#111827;
+  --muted:#5f6b7a;
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --border:#d8e0ec;
+  --blue-soft:#eef4ff;
+  --red-soft:#fff1f3;
+  --green-soft:#ecfdf3;
+  --yellow-soft:#fff7ed;
+  --shadow:0 20px 60px rgba(7,25,54,.12);
+  --radius:24px;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(18,78,196,.13), transparent 30%),
+    linear-gradient(180deg,#ffffff 0%,var(--bg) 76%,#ffffff 100%);
+  color:var(--text);
+}
+
+a { color:inherit; text-decoration:none; }
+
+.report-shell {
+  max-width:920px;
+  margin:0 auto;
+  padding:28px 20px 70px;
+}
+
+.top-actions {
+  max-width:920px;
+  margin:0 auto;
+  padding:18px 20px 0;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.btn {
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:13px 18px;
+  font-weight:950;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn-primary {
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+  color:#fff;
+  box-shadow:0 14px 28px rgba(0,58,143,.24);
+}
+
+.btn-secondary {
+  background:#fff;
+  color:var(--blue-dark);
+  border:1px solid var(--border);
+}
+
+.report {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:30px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.hero {
+  position:relative;
+  padding:42px;
+  color:var(--blue-dark);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(18,78,196,.10), transparent 32%),
+    linear-gradient(135deg,#ffffff 0%,#eef4ff 100%);
+}
+
+.hero:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,58,143,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,58,143,.045) 1px, transparent 1px);
+  background-size:32px 32px;
+  mask-image:linear-gradient(180deg,#000 0%,transparent 82%);
+  pointer-events:none;
+}
+
+.hero-inner {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:start;
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:34px;
+}
+
+.logo-mark {
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:1000;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+
+.brand strong {
+  color: #ffffff;
+
+  display:block;
+  font-size:22px;
+  letter-spacing:-.04em;
+}
+
+.brand small {
+  color: rgba(255,255,255,.85);
+
+  display:block;
+  margin-top:6px;
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  opacity:.84;
+  font-weight:800;
+  line-height:1.55;
+}
+
+.powered-by {
+  color: rgba(255,255,255,.7);
+
+  display:block;
+  margin-top:7px;
+  color:rgba(255,255,255,.60);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  background:#ffffff;
+  border:1px solid rgba(0,58,143,.14);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.dot {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--red);
+}
+
+h1 {
+  margin:0;
+  font-size:48px;
+  line-height:.98;
+  letter-spacing:-.07em;
+}
+
+.hero-copy {
+  margin:18px 0 0;
+  max-width:580px;
+  color:#4b5563;
+  line-height:1.58;
+  font-size:17px;
+}
+
+.prepared-card {
+  background:#ffffff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:18px;
+  min-width:250px;
+  backdrop-filter:blur(8px);
+}
+
+.prepared-card small {
+  display:block;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.prepared-card strong {
+  display:block;
+  font-size:18px;
+  line-height:1.25;
+}
+
+.prepared-card span {
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.content {
+  padding:34px 42px 42px;
+}
+
+.score-row {
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:28px;
+  align-items:center;
+  margin-bottom:32px;
+}
+
+.score-circle {
+  width:164px;
+  height:164px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:conic-gradient(var(--blue) 0deg, var(--blue-soft) 0deg);
+  position:relative;
+  box-shadow:0 18px 42px rgba(0,58,143,.16);
+}
+
+.score-circle:after {
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:inset 0 0 0 1px var(--border);
+}
+
+.score-number {
+  position:relative;
+  z-index:1;
+  text-align:center;
+  color:var(--blue-dark);
+  font-weight:1000;
+  font-size:43px;
+  letter-spacing:-.05em;
+}
+
+.score-number small {
+  display:block;
+  font-size:13px;
+  color:var(--muted);
+  letter-spacing:0;
+  margin-top:-4px;
+}
+
+.status {
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:950;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.status.good {
+  background:var(--green-soft);
+  color:var(--green);
+}
+
+.status.medium {
+  background:var(--yellow-soft);
+  color:var(--yellow);
+}
+
+.status.weak {
+  background:var(--red-soft);
+  color:var(--red);
+}
+
+.score-summary h2 {
+  margin:0;
+  color:var(--blue-dark);
+  font-size:34px;
+  line-height:1.04;
+  letter-spacing:-.06em;
+}
+
+.score-summary p {
+  margin:12px 0 0;
+  color:var(--muted);
+  line-height:1.62;
+  font-size:16px;
+}
+
+.section {
+  margin-top:32px;
+}
+
+.section h2 {
+  margin:0 0 14px;
+  color:var(--blue-dark);
+  font-size:28px;
+  line-height:1.08;
+  letter-spacing:-.05em;
+}
+
+.section-lead {
+  margin:0 0 18px;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:16px;
+}
+
+.risk-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.risk-card {
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+  background:#fff;
+}
+
+.risk-card.priority {
+  border-color:rgba(227,24,55,.18);
+  background:var(--red-soft);
+}
+
+.risk-card.review {
+  border-color:rgba(180,83,9,.18);
+  background:var(--yellow-soft);
+}
+
+.risk-card.ok {
+  border-color:rgba(21,128,61,.18);
+  background:var(--green-soft);
+}
+
+.risk-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.risk-card strong {
+  color:var(--blue-dark);
+  font-size:16px;
+}
+
+.severity {
+  display:inline-flex;
+  align-items:center;
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+
+.priority .severity {
+  background:#fff;
+  color:var(--red);
+}
+
+.review .severity {
+  background:#fff;
+  color:var(--yellow);
+}
+
+.ok .severity {
+  background:#fff;
+  color:var(--green);
+}
+
+.risk-card p {
+  margin:0;
+  color:#4b5563;
+  line-height:1.48;
+  font-size:14px;
+}
+
+.meaning {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.meaning-card {
+  padding:18px;
+  border-radius:20px;
+  background:var(--blue-soft);
+  border:1px solid rgba(0,58,143,.12);
+}
+
+.meaning-card span {
+  width:30px;
+  height:30px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:1000;
+  margin-bottom:12px;
+}
+
+.meaning-card strong {
+  display:block;
+  color:var(--blue-dark);
+  font-size:15px;
+}
+
+.meaning-card p {
+  margin:6px 0 0;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:13px;
+}
+
+.cta-band {
+  margin-top:34px;
+  padding:30px;
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(18,78,196,.16), transparent 34%),
+    linear-gradient(135deg,var(--blue-dark),#0e2d62);
+  color:#fff;
+}
+
+.cta-band h2 {
+  margin:0;
+  font-size:30px;
+  line-height:1.08;
+  letter-spacing:-.05em;
+}
+
+.cta-band p {
+  color:rgba(255,255,255,.82);
+  line-height:1.6;
+  margin:10px 0 18px;
+}
+
+.cta-band .btn {
+  background:#fff;
+  color:var(--blue-dark);
+}
+
+
+.anchor-note {
+  margin:20px 0 0;
+  padding:14px 16px;
+  background:rgba(0,58,143,.05);
+  border:1px solid rgba(0,58,143,.10);
+  border-radius:16px;
+  color:#4b5563;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.breakdown-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.breakdown-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+}
+
+.breakdown-card h3 {
+  margin:0;
+  color:var(--blue-dark);
+  font-size:17px;
+  letter-spacing:-.03em;
+}
+
+.breakdown-card p {
+  margin:8px 0 0;
+  color:var(--muted);
+  line-height:1.5;
+  font-size:14px;
+}
+
+.breakdown-meter {
+  height:8px;
+  background:var(--blue-soft);
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:14px;
+}
+
+.breakdown-fill {
+  height:100%;
+  width:50%;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+}
+
+.breakdown-fill.priority {
+  background:var(--red);
+}
+
+.breakdown-fill.review {
+  background:var(--yellow);
+}
+
+.breakdown-fill.ok {
+  background:var(--green);
+}
+
+
+.breakdown-conclusion {
+  margin:16px 0 0;
+  padding:16px 18px;
+  border-left:4px solid var(--blue);
+  background:#fff;
+  border-radius:16px;
+  color:#394456;
+  font-size:14px;
+  line-height:1.55;
+}
+
+.next-step-box {
+  margin-top:18px;
+  padding:22px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#f8fbff 0%, #eef4ff 100%);
+  border:1px solid rgba(0,58,143,.16);
+  box-shadow:0 12px 28px rgba(7,25,54,.07);
+}
+
+.next-step-box strong {
+  display:block;
+  color:var(--blue-dark);
+  font-size:16px;
+}
+
+.next-step-box p {
+  margin:8px 0 0;
+  color:var(--muted);
+  line-height:1.55;
+  font-size:14px;
+}
+
+.footer-name {
+  font-weight:950;
+  color:var(--blue-dark);
+}
+
+.footer-medium {
+  font-weight:750;
+  color:#394456;
+}
+
+.footer-light {
+  font-weight:400;
+  color:var(--muted);
+}
+
+.footer {
+  padding:24px 42px;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+.footer strong {
+  color:var(--blue-dark);
+}
+
+.print-note {
+  margin-top:14px;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+
+@media (max-width:760px) {
+  .hero-inner,
+  .score-row,
+  .meaning {
+    grid-template-columns:1fr;
+  }
+
+  .prepared-card {
+    min-width:0;
+  }
+
+  .risk-grid,
+  .breakdown-grid {
+    grid-template-columns:1fr;
+  }
+
+  h1 {
+    font-size:38px;
+  }
+
+  .hero,
+  .content,
+  
+.anchor-note {
+  margin:20px 0 0;
+  padding:14px 16px;
+  background:rgba(0,58,143,.05);
+  border:1px solid rgba(0,58,143,.10);
+  border-radius:16px;
+  color:#4b5563;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.breakdown-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.breakdown-card {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+}
+
+.breakdown-card h3 {
+  margin:0;
+  color:var(--blue-dark);
+  font-size:17px;
+  letter-spacing:-.03em;
+}
+
+.breakdown-card p {
+  margin:8px 0 0;
+  color:var(--muted);
+  line-height:1.5;
+  font-size:14px;
+}
+
+.breakdown-meter {
+  height:8px;
+  background:var(--blue-soft);
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:14px;
+}
+
+.breakdown-fill {
+  height:100%;
+  width:50%;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+}
+
+.breakdown-fill.priority {
+  background:var(--red);
+}
+
+.breakdown-fill.review {
+  background:var(--yellow);
+}
+
+.breakdown-fill.ok {
+  background:var(--green);
+}
+
+
+.breakdown-conclusion {
+  margin:16px 0 0;
+  padding:16px 18px;
+  border-left:4px solid var(--blue);
+  background:#fff;
+  border-radius:16px;
+  color:#394456;
+  font-size:14px;
+  line-height:1.55;
+}
+
+.next-step-box {
+  margin-top:18px;
+  padding:22px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#f8fbff 0%, #eef4ff 100%);
+  border:1px solid rgba(0,58,143,.16);
+  box-shadow:0 12px 28px rgba(7,25,54,.07);
+}
+
+.next-step-box strong {
+  display:block;
+  color:var(--blue-dark);
+  font-size:16px;
+}
+
+.next-step-box p {
+  margin:8px 0 0;
+  color:var(--muted);
+  line-height:1.55;
+  font-size:14px;
+}
+
+.footer-name {
+  font-weight:950;
+  color:var(--blue-dark);
+}
+
+.footer-medium {
+  font-weight:750;
+  color:#394456;
+}
+
+.footer-light {
+  font-weight:400;
+  color:var(--muted);
+}
+
+.footer {
+    padding-left:24px;
+    padding-right:24px;
+  }
+}
+
+@media print {
+  body {
+    background:#fff;
+  }
+
+  .top-actions,
+  .print-note {
+    display:none;
+  }
+
+  .report-shell {
+    padding:0;
+    max-width:none;
+  }
+
+  .report {
+    box-shadow:none;
+    border:none;
+    border-radius:0;
+  }
+
+  .hero {
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  .risk-card,
+  .meaning-card,
+  .cta-band,
+  .score-circle {
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  a {
+    text-decoration:none;
+  }
+}
+
+/* Final hero readability override */
+.hero {
+  color:var(--blue-dark) !important;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(18,78,196,.10), transparent 32%),
+    linear-gradient(135deg,#ffffff 0%,#eef4ff 100%) !important;
+}
+
+.hero .brand strong,
+.hero h1,
+.hero .prepared-card strong {
+  color:var(--blue-dark) !important;
+}
+
+.hero .brand small {
+  color:#42516a !important;
+}
+
+.hero .powered-by {
+  color:rgba(7,25,54,.62) !important;
+}
+
+.hero .hero-copy,
+.hero .prepared-card span,
+.hero .prepared-card small {
+  color:#5f6b7a !important;
+}
+
+.hero .eyebrow {
+  color:#394456 !important;
+  background:#fff !important;
+  border-color:rgba(0,58,143,.14) !important;
+}
+
+.hero .prepared-card {
+  background:#fff !important;
+  border-color:var(--border) !important;
+}
+
+
+/* Print/PDF optimization */
+@page {
+  size: Letter;
+  margin: 0.35in;
+}
+
+@media print {
+  html, body {
+    width: auto;
+    height: auto;
+    background:#fff !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12px;
+  }
+
+  .top-actions,
+  .print-note {
+    display:none !important;
+  }
+
+  .report-shell {
+    padding:0 !important;
+    max-width:none !important;
+    width:100% !important;
+  }
+
+  .report {
+    border:none !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    overflow:visible !important;
+    width:100% !important;
+  }
+
+  .hero {
+    padding:22px 26px !important;
+    border:1px solid var(--border) !important;
+    border-radius:18px !important;
+    margin-bottom:18px !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .hero-inner {
+    grid-template-columns:1fr .72fr !important;
+    gap:18px !important;
+  }
+
+  .brand {
+    margin-bottom:18px !important;
+  }
+
+  .logo-mark {
+    width:34px !important;
+    height:34px !important;
+    border-radius:10px !important;
+  }
+
+  .brand strong {
+    font-size:18px !important;
+  }
+
+  .brand small {
+    font-size:8.5px !important;
+    line-height:1.35 !important;
+  }
+
+  .powered-by {
+    font-size:8.5px !important;
+    margin-top:4px !important;
+  }
+
+  .eyebrow {
+    font-size:9px !important;
+    padding:6px 9px !important;
+    margin-bottom:12px !important;
+  }
+
+  h1 {
+    font-size:34px !important;
+    line-height:1 !important;
+  }
+
+  .hero-copy {
+    font-size:12px !important;
+    line-height:1.45 !important;
+    margin-top:10px !important;
+  }
+
+  .prepared-card {
+    padding:14px !important;
+    border-radius:16px !important;
+    min-width:0 !important;
+  }
+
+  .prepared-card small {
+    font-size:8.5px !important;
+  }
+
+  .prepared-card strong {
+    font-size:14px !important;
+  }
+
+  .prepared-card span {
+    font-size:10px !important;
+    margin-top:5px !important;
+  }
+
+  .content {
+    padding:0 !important;
+  }
+
+  .score-row {
+    grid-template-columns:112px 1fr !important;
+    gap:18px !important;
+    margin:0 0 18px !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .score-circle {
+    width:112px !important;
+    height:112px !important;
+    box-shadow:none !important;
+  }
+
+  .score-circle:after {
+    width:82px !important;
+    height:82px !important;
+  }
+
+  .score-number {
+    font-size:30px !important;
+  }
+
+  .score-number small {
+    font-size:9px !important;
+  }
+
+  .status {
+    font-size:9px !important;
+    padding:6px 9px !important;
+    margin-bottom:8px !important;
+  }
+
+  .score-summary h2 {
+    font-size:22px !important;
+    line-height:1.08 !important;
+  }
+
+  .score-summary p,
+  .section-lead {
+    font-size:11px !important;
+    line-height:1.45 !important;
+  }
+
+  .anchor-note,
+  .breakdown-conclusion,
+  .next-step-box {
+    font-size:10.5px !important;
+    line-height:1.4 !important;
+    padding:10px 12px !important;
+    border-radius:12px !important;
+    margin-top:10px !important;
+    box-shadow:none !important;
+  }
+
+  .section {
+    margin-top:18px !important;
+    break-inside:avoid-page !important;
+  }
+
+  .section h2 {
+    font-size:19px !important;
+    margin-bottom:8px !important;
+  }
+
+  .risk-grid,
+  .breakdown-grid {
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:9px !important;
+  }
+
+  .meaning {
+    grid-template-columns:repeat(3,1fr) !important;
+    gap:9px !important;
+  }
+
+  .risk-card,
+  .breakdown-card,
+  .meaning-card {
+    padding:11px !important;
+    border-radius:14px !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .risk-card strong,
+  .breakdown-card h3,
+  .meaning-card strong {
+    font-size:11.5px !important;
+  }
+
+  .risk-card p,
+  .breakdown-card p,
+  .meaning-card p {
+    font-size:9.5px !important;
+    line-height:1.35 !important;
+  }
+
+  .severity {
+    font-size:7.5px !important;
+    padding:4px 6px !important;
+  }
+
+  .breakdown-meter {
+    height:6px !important;
+    margin-top:8px !important;
+  }
+
+  .meaning-card span {
+    width:22px !important;
+    height:22px !important;
+    border-radius:7px !important;
+    margin-bottom:8px !important;
+    font-size:10px !important;
+  }
+
+  .cta-band {
+    margin-top:18px !important;
+    padding:18px !important;
+    border-radius:16px !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .cta-band h2 {
+    font-size:20px !important;
+  }
+
+  .cta-band p {
+    font-size:11px !important;
+    line-height:1.45 !important;
+    margin:8px 0 12px !important;
+  }
+
+  .cta-band .btn {
+    padding:9px 12px !important;
+    font-size:10px !important;
+  }
+
+  .footer {
+    margin-top:18px !important;
+    padding:14px 0 0 !important;
+    border-top:1px solid var(--border) !important;
+    font-size:9.5px !important;
+    line-height:1.35 !important;
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  a[href]::after {
+    content:"" !important;
+  }
+}
+
+
+/* Executive PDF Version - high contrast, 2-page friendly */
+.report {
+  background:#fff;
+}
+
+.hero {
+  background:#ffffff !important;
+  border:1px solid var(--border) !important;
+  color:var(--blue-dark) !important;
+}
+
+.hero:after {
+  background:
+    linear-gradient(rgba(0,58,143,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,58,143,.04) 1px, transparent 1px) !important;
+}
+
+.hero .brand strong,
+.hero h1,
+.hero .prepared-card strong {
+  color:var(--blue-dark) !important;
+}
+
+.hero .brand small {
+  color:#3f4d63 !important;
+}
+
+.hero .powered-by {
+  color:rgba(7,25,54,.65) !important;
+}
+
+.hero .hero-copy,
+.hero .prepared-card span,
+.hero .prepared-card small {
+  color:#4b5563 !important;
+}
+
+.hero .eyebrow {
+  color:#263247 !important;
+  background:#f8fbff !important;
+  border:1px solid rgba(0,58,143,.14) !important;
+}
+
+.hero .prepared-card {
+  background:#f8fbff !important;
+  border:1px solid var(--border) !important;
+}
+
+.exec-summary {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:18px;
+}
+
+.exec-callout {
+  padding:16px;
+  border-radius:18px;
+  background:#f8fbff;
+  border:1px solid var(--border);
+}
+
+.exec-callout strong {
+  display:block;
+  color:var(--blue-dark);
+  font-size:15px;
+}
+
+.exec-callout p {
+  margin:6px 0 0;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:13px;
+}
+
+.report-page-break {
+  display:none;
+}
+
+@media print {
+  .report-page-break {
+    display:block;
+    break-before:page;
+    page-break-before:always;
+  }
+}
+
+.pdf-mode {
+  width: 8.5in !important;
+  min-height: 11in;
+  margin: 0 auto !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  border:none !important;
+}
+
+.pdf-mode .hero {
+  border-radius:0 !important;
+  padding:0.36in !important;
+}
+
+.pdf-mode .content {
+  padding:0.32in !important;
+}
+
+.pdf-mode .footer {
+  padding:0.22in 0.32in !important;
+}
+
+.pdf-mode .top-actions,
+.pdf-mode .print-note {
+  display:none !important;
+}
+
+@media (max-width:760px) {
+  .exec-summary {
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* Mobile/iOS print preview readability fix */
+@media print, (max-width:760px) {
+  .hero {
+    background:#ffffff !important;
+    color:var(--blue-dark) !important;
+    border:1px solid var(--border) !important;
+    box-shadow:none !important;
+  }
+
+  .hero:after {
+    background:
+      linear-gradient(rgba(0,58,143,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,58,143,.04) 1px, transparent 1px) !important;
+  }
+
+  .hero .brand strong,
+  .hero h1,
+  .hero .prepared-card strong {
+    color:var(--blue-dark) !important;
+  }
+
+  .hero .brand small,
+  .hero .powered-by,
+  .hero .hero-copy,
+  .hero .prepared-card small,
+  .hero .prepared-card span {
+    color:#4b5563 !important;
+    opacity:1 !important;
+  }
+
+  .hero .prepared-card,
+  .hero .eyebrow {
+    background:#ffffff !important;
+    color:var(--blue-dark) !important;
+    border-color:var(--border) !important;
+  }
+
+  .logo-mark {
+    background:linear-gradient(135deg,var(--blue),var(--blue-2)) !important;
+    color:#ffffff !important;
+  }
+}
+
+/* Force html2pdf capture mode to use the light executive header on every device */
+.pdf-mode .hero {
+  background:#ffffff !important;
+  color:var(--blue-dark) !important;
+  border:1px solid var(--border) !important;
+}
+
+.pdf-mode .hero .brand strong,
+.pdf-mode .hero h1,
+.pdf-mode .hero .prepared-card strong {
+  color:var(--blue-dark) !important;
+}
+
+.pdf-mode .hero .brand small,
+.pdf-mode .hero .powered-by,
+.pdf-mode .hero .hero-copy,
+.pdf-mode .hero .prepared-card small,
+.pdf-mode .hero .prepared-card span {
+  color:#4b5563 !important;
+  opacity:1 !important;
+}
+
+.pdf-mode .hero .prepared-card,
+.pdf-mode .hero .eyebrow {
+  background:#ffffff !important;
+  color:var(--blue-dark) !important;
+  border-color:var(--border) !important;
+}
+
+.pdf-mode .logo-mark {
+  background:linear-gradient(135deg,var(--blue),var(--blue-2)) !important;
+  color:#ffffff !important;
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+<div class="top-actions">
+  <button class="btn btn-secondary" onclick="downloadPDF()">Download PDF</button>
+  <a class="btn btn-primary" id="reviewTopLink" href="https://coveragefit.com/#review">Request Review →</a>
+</div>
+
+<div class="report-shell">
+  <article class="report">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="brand">
+            <div class="logo-mark">CF</div>
+            <div>
+              <strong>CoverageFit</strong>
+              <small>A coverage review system for identifying gaps before a claim</small>
+              <span class="powered-by">Powered by BayAreaLandlordInsurance.com</span>
+            </div>
+          </div>
+
+          <div class="eyebrow"><span class="dot"></span> Rental Coverage Score Report</div>
+
+          <h1>Your Rental Coverage Score.</h1>
+
+          <p class="hero-copy">
+            This report summarizes your score and the areas that may deserve a closer look before a claim forces the issue.
+          </p>
+        </div>
+
+        <div class="prepared-card">
+          <small>Prepared for</small>
+          <strong id="preparedName">Rental Property Owner</strong>
+          <span id="preparedProperty">Property: Not provided</span>
+          <span id="preparedDate">Generated today</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="score-row">
+        <div class="score-circle" id="scoreCircle">
+          <div class="score-number">
+            <span id="scoreNumber">—</span>
+            <small>/ 100</small>
+          </div>
+        </div>
+
+        <div class="score-summary">
+          <div class="status" id="statusBadge">Score Result</div>
+          <h2 id="resultTitle">Your rental coverage score is ready.</h2>
+          <p id="resultCopy">
+            Your score is directional only. It highlights areas where your current rental coverage structure may deserve review.
+          </p>
+
+          <div class="anchor-note">
+            This score is based on common areas where coverage gaps are discovered during real claims.
+          </div>
+
+          <div class="exec-summary">
+            <div class="exec-callout">
+              <strong>Main purpose</strong>
+              <p>Identify where rental coverage may deserve review before a claim exposes the issue.</p>
+            </div>
+
+            <div class="exec-callout">
+              <strong>Recommended use</strong>
+              <p>Use this report as a starting point, then confirm details against the actual policy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>Key Risk Areas Worth Reviewing</h2>
+        <p class="section-lead">
+          These are the areas flagged by your Rental Coverage Score. They are not coverage determinations, but they are useful places to start.
+        </p>
+
+        <div class="risk-grid" id="riskGrid"></div>
+      </section>
+
+
+      <div class="report-page-break"></div>
+
+      <section class="section">
+        <h2>Coverage Score Breakdown</h2>
+        <p class="section-lead">
+          This breakdown summarizes the main coverage categories used in your score. It is meant to help prioritize what to review first.
+        </p>
+
+        <div class="breakdown-grid" id="breakdownGrid"></div>
+
+        <div class="breakdown-conclusion">
+          Most rental owners don’t realize these gaps until a claim forces the issue.
+          If you want, I can walk through this with you and show exactly how it applies to your policy.
+        </div>
+
+        <div class="next-step-box" id="recommendedNextStep">
+          <strong>Recommended next step</strong>
+          <p>Review your actual policy declarations page to confirm how the coverage is structured.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>What This Could Mean In A Real Claim</h2>
+        <div class="meaning">
+          <div class="meaning-card">
+            <span>1</span>
+            <strong>Income interruption</strong>
+            <p>If the property becomes unlivable, rental income may stop while repairs are underway.</p>
+          </div>
+
+          <div class="meaning-card">
+            <span>2</span>
+            <strong>Policy mismatch</strong>
+            <p>A rental property should be structured around rental use, occupancy, and landlord exposure.</p>
+          </div>
+
+          <div class="meaning-card">
+            <span>3</span>
+            <strong>Liability exposure</strong>
+            <p>Tenants, guests, vendors, and visitors can create more moving parts than a primary home.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <h2>Want to see how this applies to your actual policy?</h2>
+        <p>
+          A Coverage Fit Review looks at your real policy structure and helps identify what looks solid, what may be limited, and what deserves attention.
+        </p>
+        <a class="btn" id="reviewMainLink" href="https://coveragefit.com/#review">Request Rental Coverage Review →</a>
+      </section>
+
+      <p class="print-note">
+        Use “Download / Print PDF” above to save this report as a PDF.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <span class="footer-name">Dylan Haysbert</span><br>
+        Insurance Producer<br>
+        <span class="footer-medium">Virginia Tam Insurance Agency</span><br>
+        <span class="footer-medium">Farmers Insurance</span>
+      </div>
+
+      <div>
+        <strong>Powered by</strong><br>
+        BayAreaLandlordInsurance.com<br>
+        coveragefit.com<br>
+        (408) 826-2465
+      </div>
+
+      <div class="footer-light">
+        CoverageFit is a coverage review tool operated by Dylan Haysbert.<br>
+        Educational report only. Coverage depends on policy terms, conditions, eligibility, and underwriting guidelines.
+      </div>
+    </footer>
+  </article>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const score = Number(params.get("score") || 0);
+const name = params.get("name") || params.get("first_name") || "Rental Property Owner";
+const property = params.get("property") || params.get("address") || params.get("zip") || "Not provided";
+const risksParam = params.get("risks") || "";
+const priority = params.get("priority") || "";
+const source = params.get("source") || "Rental Coverage Score Report";
+
+const riskDescriptions = {
+  "Property Type": "Property classification may affect how the policy should be structured.",
+  "Policy Type": "The property may need review to confirm it is insured for rental use.",
+  "Income Protection": "Loss of rent or rental income protection may need review.",
+  "Liability": "Liability limits may need review against tenant, guest, vendor, and visitor exposure.",
+  "Occupancy": "Vacancy, short-term rental use, or changing occupancy can affect risk and eligibility.",
+  "Water Damage": "Water damage can interrupt rent and create expensive repair scenarios.",
+  "Tenant Insurance": "Tenant renters insurance requirements may reduce confusion during tenant-related losses."
+};
+
+function cleanList(value) {
+  return value
+    .split(",")
+    .map(item => item.trim())
+    .filter(Boolean);
+}
+
+function getStatus(score) {
+  if (score >= 80) {
+    return {
+      badge: "Strong Starting Point",
+      className: "good",
+      title: "Your rental coverage appears to have a stronger starting structure.",
+      copy: "Your answers suggest some important areas may already be addressed. It can still be worth checking limits, exclusions, and whether the policy matches the property’s actual use."
+    };
+  }
+
+  if (score >= 60) {
+    return {
+      badge: "Needs Review",
+      className: "medium",
+      title: "Your rental coverage may have gaps worth reviewing.",
+      copy: "Your answers suggest possible uncertainty around key areas like income protection, liability, occupancy, water damage, or tenant requirements."
+    };
+  }
+
+  return {
+    badge: "High Gap Risk",
+    className: "weak",
+    title: "Your rental coverage may have high-priority areas to review.",
+    copy: "Your answers show multiple areas that deserve a closer look before a claim exposes the problem."
+  };
+}
+
+function getSeverity(score, risk) {
+  if (score < 60) return { label: "Priority", className: "priority" };
+  if (score < 80) return { label: "Review", className: "review" };
+  return { label: "Confirm", className: "ok" };
+}
+
+
+function getBreakdownCategories(risks, score) {
+  const categories = [
+    {
+      key: "Policy Type",
+      title: "Policy Structure",
+      copy: "Confirms whether the property is structured for rental use rather than owner-occupied use."
+    },
+    {
+      key: "Income Protection",
+      title: "Rental Income Protection",
+      copy: "Checks whether rental income may be addressed if a covered loss makes the property unlivable."
+    },
+    {
+      key: "Liability",
+      title: "Liability Exposure",
+      copy: "Reviews tenant, guest, vendor, and visitor liability concerns against your coverage setup."
+    },
+    {
+      key: "Water Damage",
+      title: "Water / Property Loss",
+      copy: "Highlights water-related risks that can create repair costs and income interruption."
+    }
+  ];
+
+  return categories.map(cat => {
+    const flagged = risks.includes(cat.key);
+    let severity = "ok";
+    let label = "Appears Aligned";
+    let width = 82;
+
+    if (flagged && score < 60) {
+      severity = "priority";
+      label = "Review Soon";
+      width = 38;
+    } else if (flagged) {
+      severity = "review";
+      label = "Worth Checking";
+      width = 58;
+    }
+
+    return { ...cat, severity, label, width };
+  });
+}
+
+function renderBreakdown(risks, score) {
+  const grid = document.getElementById("breakdownGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  getBreakdownCategories(risks, score).forEach(item => {
+    const div = document.createElement("div");
+    div.className = "breakdown-card";
+    div.innerHTML = `
+      <h3>${item.title}</h3>
+      <p>${item.copy}</p>
+      <div class="breakdown-meter">
+        <div class="breakdown-fill ${item.severity}" style="width:${item.width}%"></div>
+      </div>
+      <p style="margin-top:8px;font-size:12px;font-weight:850;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;">${item.label}</p>
+    `;
+    grid.appendChild(div);
+  });
+
+  const nextStep = document.getElementById("recommendedNextStep");
+  if (nextStep) {
+    if (score < 60) {
+      nextStep.innerHTML = `
+        <strong>Recommended next step</strong>
+        <p>A quick review of your policy structure and income protection setup would be a strong next step.</p>
+      `;
+    } else if (score < 80) {
+      nextStep.innerHTML = `
+        <strong>Recommended next step</strong>
+        <p>A quick review of the flagged areas against your actual policy declarations page would be a strong next step before relying on the coverage in a claim.</p>
+      `;
+    } else {
+      nextStep.innerHTML = `
+        <strong>Recommended next step</strong>
+        <p>Your answers suggest a stronger starting point. A review can still help confirm limits, exclusions, endorsements, and rental-use structure.</p>
+      `;
+    }
+  }
+}
+
+function renderReport() {
+  const status = getStatus(score);
+  const risks = cleanList(risksParam);
+  const degrees = Math.round((Math.max(0, Math.min(score, 100)) / 100) * 360);
+
+  document.getElementById("preparedName").textContent = name;
+  document.getElementById("preparedProperty").textContent = "Property: " + property;
+  document.getElementById("preparedDate").textContent =
+    "Generated: " + new Date().toLocaleDateString();
+
+  document.getElementById("scoreNumber").textContent = score || "—";
+  document.getElementById("scoreCircle").style.background =
+    `conic-gradient(var(--blue) ${degrees}deg, var(--blue-soft) ${degrees}deg)`;
+
+  const badge = document.getElementById("statusBadge");
+  badge.textContent = priority || status.badge;
+  badge.className = `status ${status.className}`;
+
+  document.getElementById("resultTitle").textContent = status.title;
+  document.getElementById("resultCopy").textContent = status.copy;
+
+  const riskGrid = document.getElementById("riskGrid");
+  riskGrid.innerHTML = "";
+
+  renderBreakdown(risks, score);
+
+  const renderedRisks = risks.length ? risks : ["Policy Type", "Income Protection", "Liability"];
+
+  renderedRisks.forEach(risk => {
+    const severity = getSeverity(score, risk);
+    const div = document.createElement("div");
+    div.className = `risk-card ${severity.className}`;
+    div.innerHTML = `
+      <div class="risk-top">
+        <strong>${risk}</strong>
+        <span class="severity">${severity.label}</span>
+      </div>
+      <p>${riskDescriptions[risk] || "This area may deserve a closer look based on your answers."}</p>
+    `;
+    riskGrid.appendChild(div);
+  });
+
+  const reviewParams = new URLSearchParams({
+    source: source,
+    coverage: "Rental Property",
+    score: String(score || ""),
+    risks: risks.join(","),
+    priority: priority || status.badge
+  });
+
+  const reviewUrl = `https://coveragefit.com/?${reviewParams.toString()}#review`;
+  document.getElementById("reviewTopLink").href = reviewUrl;
+  document.getElementById("reviewMainLink").href = reviewUrl;
+}
+
+
+function downloadPDF() {
+  const element = document.querySelector(".report");
+
+  if (!element) return;
+
+  element.classList.add("pdf-mode");
+
+  const opt = {
+    margin: 0,
+    filename: "Rental-Coverage-Score-Report.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#ffffff",
+      scrollY: 0
+    },
+    pagebreak: {
+      mode: ["css", "legacy"],
+      before: ".report-page-break"
+    },
+    jsPDF: {
+      unit: "in",
+      format: "letter",
+      orientation: "portrait"
+    }
+  };
+
+  html2pdf()
+    .set(opt)
+    .from(element)
+    .save()
+    .then(() => {
+      element.classList.remove("pdf-mode");
+    })
+    .catch(() => {
+      element.classList.remove("pdf-mode");
+    });
+}
+
+
+renderReport();
+</script>
+
+</body>
+</html>
