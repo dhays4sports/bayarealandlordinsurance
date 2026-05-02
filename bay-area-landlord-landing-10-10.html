@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bay Area Landlord Insurance | Rental Coverage Score for Rental Property Owners</title>
+  <meta name="description" content="Bay Area landlord insurance resource for rental property owners. Check your Rental Coverage Score through CoverageFit to review policy type, loss of rent, liability, water damage, vacancy, and tenant insurance concerns." />
+
+  <style>
+    :root {
+      --blue:#003a8f;
+      --blue-2:#124ec4;
+      --blue-dark:#071936;
+      --red:#e31837;
+      --green:#15803d;
+      --yellow:#b45309;
+      --text:#111827;
+      --muted:#5f6b7a;
+      --bg:#f5f7fb;
+      --surface:#ffffff;
+      --border:#d8e0ec;
+      --blue-soft:#eef4ff;
+      --red-soft:#fff1f3;
+      --green-soft:#ecfdf3;
+      --yellow-soft:#fff7ed;
+      --shadow:0 18px 45px rgba(7,25,54,.12);
+      --radius:22px;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(18,78,196,.10), transparent 30%),
+        linear-gradient(180deg,#fff 0%,var(--bg) 72%,#fff 100%);
+      color:var(--text);
+    }
+
+    a { color:inherit; text-decoration:none; }
+
+    .wrap { max-width:1120px; margin:0 auto; padding:0 22px; }
+
+    header {
+      padding:18px 0;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(16px);
+      position:sticky;
+      top:0;
+      z-index:50;
+      border-bottom:1px solid rgba(216,224,236,.78);
+    }
+
+    .nav { display:flex; justify-content:space-between; align-items:center; gap:20px; }
+
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:950;
+      letter-spacing:-.045em;
+      color:var(--blue-dark);
+      font-size:20px;
+      line-height:1;
+    }
+
+    .logo-mark {
+      width:36px;
+      height:36px;
+      border-radius:11px;
+      background:linear-gradient(135deg,var(--blue),var(--blue-2));
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-weight:950;
+      font-size:15px;
+      box-shadow:0 10px 24px rgba(0,58,143,.28);
+    }
+
+    .logo small {
+      display:block;
+      margin-top:4px;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .nav-links { display:flex; gap:22px; align-items:center; font-size:13px; font-weight:850; color:#263247; }
+    .nav-links a:hover { color:var(--blue); }
+
+    .nav-cta {
+      background:var(--blue);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:14px;
+      box-shadow:0 12px 26px rgba(0,58,143,.25);
+      white-space:nowrap;
+    }
+
+    .hero { padding:54px 0 34px; }
+    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:42px; align-items:center; }
+
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      background:var(--blue-soft);
+      color:var(--blue);
+      border:1px solid rgba(0,58,143,.12);
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .dot { width:8px; height:8px; border-radius:50%; background:var(--red); }
+
+    h1 { margin:0; font-size:64px; line-height:.96; letter-spacing:-.07em; color:var(--blue-dark); }
+
+    .hero p { margin:22px 0 0; font-size:21px; line-height:1.5; color:var(--muted); max-width:650px; }
+
+    .hero-actions { margin-top:30px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+
+    .btn {
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:16px 22px;
+      font-weight:950;
+      font-size:15px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      text-align:center;
+    }
+
+    .btn-primary { background:var(--blue); color:#fff; box-shadow:0 16px 32px rgba(0,58,143,.26); }
+    .btn-secondary { background:#fff; color:var(--blue-dark); border:1px solid var(--border); }
+
+    .micro { font-size:13px; color:var(--muted); font-weight:750; }
+    .micro a { color:var(--blue); font-weight:950; }
+
+    .handoff-note {
+      margin-top:14px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:800;
+      padding:9px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+    }
+    .handoff-note strong { color:var(--blue-dark); }
+
+    .card { background:rgba(255,255,255,.94); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
+
+    .hero-card { padding:28px; position:relative; overflow:hidden; }
+    .hero-card:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(0,58,143,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,58,143,.055) 1px, transparent 1px);
+      background-size:28px 28px;
+      mask-image:linear-gradient(180deg,#000 0%,transparent 88%);
+      pointer-events:none;
+    }
+
+    .hero-card-inner { position:relative; z-index:1; }
+    .hero-card h2 { margin:0 0 8px; color:var(--blue-dark); font-size:28px; line-height:1.05; letter-spacing:-.05em; }
+    .hero-card p { margin:0 0 20px; font-size:16px; color:var(--muted); line-height:1.55; }
+
+    .score-teaser {
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:16px;
+      align-items:center;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      margin-bottom:14px;
+    }
+
+    .score-circle {
+      width:82px;
+      height:82px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:conic-gradient(var(--red) 0 118deg, var(--yellow) 118deg 230deg, var(--blue-soft) 230deg 360deg);
+      position:relative;
+    }
+    .score-circle:after { content:""; position:absolute; width:60px; height:60px; border-radius:50%; background:#fff; box-shadow:inset 0 0 0 1px var(--border); }
+    .score-circle strong { position:relative; z-index:1; color:var(--blue-dark); font-size:26px; letter-spacing:-.05em; }
+
+    .quick-list { display:grid; gap:12px; }
+    .quick-item { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; background:#fff; border:1px solid var(--border); border-radius:17px; padding:15px; }
+    .quick-icon { width:30px; height:30px; border-radius:10px; background:var(--red-soft); color:var(--red); display:grid; place-items:center; font-weight:950; }
+    .quick-item strong { display:block; color:var(--blue-dark); font-size:15px; }
+    .quick-item span { display:block; color:var(--muted); font-size:13px; margin-top:3px; line-height:1.35; }
+
+    .section { padding:42px 0; }
+    .section-head { text-align:center; max-width:800px; margin:0 auto 24px; }
+    .section-head h2 { margin:0; color:var(--blue-dark); font-size:42px; line-height:1.04; letter-spacing:-.06em; }
+    .section-head p { margin:14px auto 0; color:var(--muted); font-size:18px; line-height:1.6; }
+
+    .problem-strip {
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 10px 28px rgba(7,25,54,.06);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .problem-strip strong { display:block; color:var(--blue-dark); font-size:24px; letter-spacing:-.045em; }
+    .problem-strip span { display:block; color:var(--muted); margin-top:7px; line-height:1.55; }
+
+    .risk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .risk-card { background:#fff; border:1px solid var(--border); border-radius:20px; padding:22px; box-shadow:0 10px 28px rgba(7,25,54,.06); }
+    .risk-badge { width:38px; height:38px; border-radius:13px; display:grid; place-items:center; background:var(--red-soft); color:var(--red); font-weight:950; margin-bottom:14px; }
+    .risk-card h3 { margin:0; color:var(--blue-dark); font-size:20px; letter-spacing:-.035em; }
+    .risk-card p { margin:9px 0 0; color:var(--muted); line-height:1.55; font-size:15px; }
+
+    .cta-band {
+      margin:18px 0 0;
+      padding:28px;
+      background:var(--blue-dark);
+      color:#fff;
+      border-radius:var(--radius);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:22px;
+      box-shadow:var(--shadow);
+    }
+    .cta-band h3 { margin:0; font-size:26px; letter-spacing:-.045em; }
+    .cta-band p { margin:7px 0 0; color:rgba(255,255,255,.78); line-height:1.5; }
+    .cta-band .btn { background:#fff; color:var(--blue-dark); flex:0 0 auto; }
+
+    .system-card {
+      padding:32px;
+      display:grid;
+      grid-template-columns:1fr .95fr;
+      gap:28px;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .system-card:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(18,78,196,.12), transparent 30%),
+        linear-gradient(rgba(0,58,143,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,58,143,.045) 1px, transparent 1px);
+      background-size:auto, 30px 30px, 30px 30px;
+      pointer-events:none;
+    }
+    .system-copy,.system-preview { position:relative; z-index:1; }
+    .system-copy h2 { margin:0; color:var(--blue-dark); font-size:42px; line-height:1.03; letter-spacing:-.065em; }
+    .system-copy p { margin:14px 0 0; color:var(--muted); font-size:17px; line-height:1.65; }
+    .system-actions { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:24px; }
+    .system-preview { background:#fff; border:1px solid var(--border); border-radius:20px; padding:22px; box-shadow:0 14px 32px rgba(7,25,54,.08); }
+    .system-preview strong { display:block; color:var(--blue-dark); font-size:20px; letter-spacing:-.035em; }
+    .system-preview p { margin:9px 0 0; color:var(--muted); font-size:14px; line-height:1.5; }
+    .system-flow { display:grid; gap:10px; margin-top:16px; }
+    .flow-step { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; color:#263247; font-size:14px; line-height:1.4; }
+    .flow-step:before { content:""; width:22px; height:22px; border-radius:50%; background:var(--blue-soft); border:1px solid rgba(0,58,143,.14); margin-top:-1px; }
+
+    .checklist { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .check-card { padding:26px; }
+    .check-card h3 { margin:0 0 16px; color:var(--blue-dark); font-size:27px; letter-spacing:-.05em; }
+    .check-list { display:grid; gap:12px; margin:0; padding:0; list-style:none; }
+    .check-list li { display:grid; grid-template-columns:auto 1fr; gap:10px; color:#263247; line-height:1.45; }
+    .check-list li:before { content:"✓"; width:22px; height:22px; border-radius:50%; background:var(--blue-soft); color:var(--blue); display:grid; place-items:center; font-size:13px; font-weight:950; margin-top:1px; }
+
+    .local-card { padding:30px; display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; }
+    .local-card h2 { margin:0; color:var(--blue-dark); font-size:40px; line-height:1.04; letter-spacing:-.06em; }
+    .local-card p { color:var(--muted); line-height:1.65; font-size:17px; margin:16px 0 0; }
+    .city-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .city { background:var(--blue-soft); color:var(--blue-dark); border:1px solid rgba(0,58,143,.12); padding:12px 14px; border-radius:14px; font-weight:850; font-size:14px; }
+
+    .trust-card { padding:30px; display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; }
+    .trust-icon { width:52px; height:52px; border-radius:16px; background:var(--blue-soft); color:var(--blue); display:grid; place-items:center; font-weight:950; font-size:22px; }
+    .trust-card h3 { margin:0 0 6px; color:var(--blue-dark); font-size:25px; letter-spacing:-.04em; }
+    .trust-card p { margin:0; color:var(--muted); line-height:1.55; }
+
+    .article-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .article-card { display:block; background:#fff; border:1px solid var(--border); border-radius:20px; padding:22px; transition:.18s ease; min-height:155px; }
+    .article-card:hover { transform:translateY(-2px); border-color:rgba(0,58,143,.35); box-shadow:0 14px 30px rgba(7,25,54,.08); }
+    .article-card small { color:var(--blue); font-weight:900; text-transform:uppercase; letter-spacing:.06em; font-size:11px; }
+    .article-card h3 { margin:10px 0 0; color:var(--blue-dark); font-size:20px; line-height:1.12; letter-spacing:-.035em; }
+    .article-card p { margin:10px 0 0; color:var(--muted); line-height:1.45; font-size:14px; }
+
+    .final {
+      padding:34px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(18,78,196,.16), transparent 34%),
+        linear-gradient(135deg,var(--blue-dark),#0e2d62);
+      color:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+    .final h2 { margin:0; font-size:42px; line-height:1.04; letter-spacing:-.06em; }
+    .final p { max-width:700px; margin:14px auto 24px; color:rgba(255,255,255,.80); line-height:1.6; font-size:17px; }
+    .final .btn { background:#fff; color:var(--blue-dark); }
+
+    footer { border-top:1px solid var(--border); padding:26px 0 92px; color:var(--muted); font-size:13px; line-height:1.5; }
+    .footer-grid { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+
+    .mobile-sticky { display:none; position:fixed; bottom:14px; left:14px; right:14px; z-index:80; background:var(--blue); color:#fff; text-align:center; padding:15px 18px; border-radius:18px; font-weight:950; box-shadow:0 16px 38px rgba(0,58,143,.36); }
+
+    @media (max-width:900px) {
+      .nav-links { display:none; }
+      .hero-grid,.checklist,.local-card,.system-card { grid-template-columns:1fr; }
+      .risk-grid,.article-grid { grid-template-columns:1fr 1fr; }
+      .trust-card { grid-template-columns:1fr; align-items:start; }
+      .cta-band,.problem-strip { align-items:flex-start; flex-direction:column; display:flex; }
+      h1 { font-size:50px; }
+      .section-head h2,.local-card h2,.final h2,.system-copy h2 { font-size:34px; }
+      .mobile-sticky { display:block; }
+    }
+
+    @media (max-width:560px) {
+      .wrap { padding:0 16px; }
+      header { padding:16px 0; }
+      .logo { font-size:18px; }
+      .nav-cta { display:none; }
+      .hero { padding:34px 0 26px; }
+      h1 { font-size:42px; }
+      .hero p { font-size:18px; }
+      .risk-grid,.article-grid,.city-grid { grid-template-columns:1fr; }
+      .hero-card,.risk-card,.check-card,.local-card,.trust-card,.final,.system-card,.problem-strip { padding:22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap nav">
+      <a href="#" class="logo" aria-label="Bay Area Landlord Insurance homepage">
+        <div class="logo-mark">BA</div>
+        <div>
+          Bay Area Landlord Insurance
+          <small>Rental Property Resource Center</small>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#risks">Risks</a>
+        <a href="#coveragefit">CoverageFit</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#bay-area">Bay Area</a>
+        <a href="#guides">Guides</a>
+      </nav>
+
+      <a class="nav-cta" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Check My Score</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Bay Area Rental Property Insurance</div>
+
+          <h1>Is your rental actually covered?</h1>
+
+          <p>
+            Most landlord policies look fine — until a claim exposes the gap. Start with a quick Rental Coverage Score
+            to check policy type, loss of rent, liability, water damage, vacancy, and tenant insurance concerns.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Check My Rental Coverage Score →</a>
+            <a class="btn btn-secondary" href="tel:14088262465">Call/Text Dylan → (408) 826-2465</a>
+            <span class="micro">Educational self-check · Takes about 60 seconds</span>
+          </div>
+
+          <div class="handoff-note">
+            <span>Powered by</span> <strong>CoverageFit</strong> <span>— a smarter way to review your coverage</span>
+          </div>
+        </div>
+
+        <div class="card hero-card">
+          <div class="hero-card-inner">
+            <h2>Before you shop price, check structure.</h2>
+            <p>A cheap policy can still be expensive if the rental is not structured correctly.</p>
+
+            <div class="score-teaser">
+              <div class="score-circle"><strong>?</strong></div>
+              <div>
+                <strong>Your score reveals where uncertainty may exist</strong>
+                <p>Policy type, rental income, liability, occupancy, water damage, and tenant insurance.</p>
+              </div>
+            </div>
+
+            <div class="quick-list">
+              <div class="quick-item"><div class="quick-icon">!</div><div><strong>Loss of rent may not work the way you think</strong><span>If a covered claim makes the rental unlivable, income protection matters.</span></div></div>
+              <div class="quick-item"><div class="quick-icon">!</div><div><strong>The policy may be built like a home policy</strong><span>A rental property should match non-owner-occupied use.</span></div></div>
+              <div class="quick-item"><div class="quick-icon">!</div><div><strong>Liability may be too low for the exposure</strong><span>Tenants, guests, vendors, and visitors create more moving parts.</span></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="risks">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Most rental coverage gaps hide in plain sight.</h2>
+          <p>Landlord insurance is not just about insuring a building. It is about protecting the property, the income stream, and the liability exposure around the people using it.</p>
+        </div>
+
+        <div class="problem-strip">
+          <div><strong>Most landlords don’t find the gap until there’s a claim.</strong><span>That is why this page sends you into a quick CoverageFit score first — before asking for a quote or review.</span></div>
+          <a class="btn btn-primary" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Run The 60-Second Score →</a>
+        </div>
+
+        <div class="risk-grid">
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Wrong Policy Type</h3><p>A rental property should not be treated like a primary residence. That mismatch can create problems.</p></div>
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Loss of Rent</h3><p>If a covered loss makes the rental unlivable, income protection may be one of the most important pieces.</p></div>
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Liability Exposure</h3><p>Tenants, guests, vendors, and visitors create more moving parts than a normal personal residence.</p></div>
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Water Damage</h3><p>Water losses can become expensive fast, especially in older buildings or multi-unit rental situations.</p></div>
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Vacancy Issues</h3><p>Vacant or between-tenant properties may trigger limitations if the policy is not set up correctly.</p></div>
+          <div class="risk-card"><div class="risk-badge">!</div><h3>Tenant Insurance</h3><p>Tenant renters insurance can reduce confusion around tenant belongings and certain tenant-related losses.</p></div>
+        </div>
+
+        <div class="cta-band">
+          <div><h3>Not sure where your rental coverage stands?</h3><p>Run the Rental Coverage Score first — then decide if a full Coverage Fit Review makes sense.</p></div>
+          <a class="btn" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Check My Rental Coverage Score →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coveragefit">
+      <div class="wrap">
+        <div class="card system-card">
+          <div class="system-copy">
+            <div class="eyebrow"><span class="dot"></span> CoverageFit Handoff</div>
+            <h2>This site is the hook. CoverageFit is the system.</h2>
+            <p>BayAreaLandlordInsurance.com helps rental owners recognize the problem. CoverageFit gives them a structured way to check their score, unlock a report, and request a review.</p>
+            <div class="system-actions">
+              <a class="btn btn-primary" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Enter CoverageFit Landlord Score →</a>
+              <a class="btn btn-secondary" href="tel:14088262465">Call Dylan First</a>
+              <span class="micro">Clear handoff · Same local advisor</span>
+            </div>
+          </div>
+
+          <div class="system-preview">
+            <strong>How the funnel works</strong>
+            <p>The user moves from pain-aware landlord page into a higher-value coverage review experience.</p>
+            <div class="system-flow">
+              <div class="flow-step">Bay Area landlord discovers the coverage gap problem</div>
+              <div class="flow-step">They click into CoverageFit to run the Rental Coverage Score</div>
+              <div class="flow-step">They unlock a score report and next-step review</div>
+              <div class="flow-step">Dylan follows up personally to walk through the policy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coverage">
+      <div class="wrap">
+        <div class="section-head"><h2>What your landlord coverage review should look at.</h2><p>The goal is simple: understand what is protected, what may be limited, and where the policy structure may not match how the property is actually used.</p></div>
+        <div class="checklist">
+          <div class="card check-card"><h3>Property protection</h3><ul class="check-list"><li>Dwelling / rebuild coverage</li><li>Other structures such as detached garages or sheds</li><li>Building ordinance or code upgrade concerns</li><li>Landlord-owned personal property used to service the rental</li><li>Water damage and claim limitation concerns</li></ul></div>
+          <div class="card check-card"><h3>Income & liability protection</h3><ul class="check-list"><li>Loss of rent or rental income protection</li><li>Premises liability for tenants, guests, vendors, and visitors</li><li>Umbrella compatibility for larger exposure</li><li>Tenant renters insurance requirements</li><li>Whether the policy matches non-owner-occupied use</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bay-area">
+      <div class="wrap"><div class="card local-card"><div><h2>Built for Bay Area rental owners.</h2><p>Higher property values, older housing stock, strict rental markets, and tenant exposure make Bay Area rental property coverage especially important to structure correctly.</p><p>This site is designed for landlords and rental property owners across the Bay Area who want a clearer way to review whether their insurance is actually built around real rental risk.</p></div><div class="city-grid" aria-label="Bay Area cities served"><div class="city">San Jose</div><div class="city">Fremont</div><div class="city">Oakland</div><div class="city">Hayward</div><div class="city">Santa Clara</div><div class="city">Sunnyvale</div><div class="city">Milpitas</div><div class="city">Palo Alto</div><div class="city">Mountain View</div><div class="city">Walnut Creek</div></div></div></div>
+    </section>
+
+    <section class="section"><div class="wrap"><div class="card trust-card"><div class="trust-icon">✓</div><div><h3>Reviewed by Dylan Haysbert</h3><p>Dylan Haysbert is an Insurance Producer with coverage support through Virginia Tam Insurance Agency. The goal is to help rental owners understand whether their coverage is structured correctly before it matters.</p></div><a class="btn btn-secondary" href="tel:14088262465">Call/Text Dylan →</a></div></div></section>
+
+    <section class="section" id="guides">
+      <div class="wrap">
+        <div class="section-head"><h2>Landlord insurance guides.</h2><p>Use these as landlord-focused education pages for SEO, internal linking, and helpful follow-up content.</p></div>
+        <div class="article-grid">
+          <a class="article-card" href="/loss-of-rent-vs-loss-of-use"><small>Coverage Guide</small><h3>Loss of Rent vs. Loss of Use</h3><p>Understand why rental income protection is different from homeowner loss-of-use coverage.</p></a>
+          <a class="article-card" href="/rental-property-insurance-california"><small>California Guide</small><h3>Rental Property Insurance in California</h3><p>A practical overview for California rental owners reviewing landlord coverage.</p></a>
+          <a class="article-card" href="/landlord-insurance-san-jose"><small>Local Guide</small><h3>Landlord Insurance in San Jose</h3><p>What San Jose rental owners should think about when reviewing coverage.</p></a>
+          <a class="article-card" href="/tenant-caused-damage-insurance"><small>Risk Guide</small><h3>Tenant-Caused Damage</h3><p>Questions to ask before assuming tenant damage is handled the way you expect.</p></a>
+          <a class="article-card" href="/landlord-liability-insurance"><small>Liability Guide</small><h3>Landlord Liability Insurance</h3><p>How tenant, guest, vendor, and visitor risk can affect rental owners.</p></a>
+          <a class="article-card" href="/rental-property-water-damage"><small>Claims Guide</small><h3>Rental Property Water Damage</h3><p>Why water losses can become one of the biggest rental property claim concerns.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="wrap"><div class="final"><h2>Check the structure before the claim.</h2><p>BayAreaLandlordInsurance.com is where rental owners discover the issue. CoverageFit is where you check the score, unlock the report, and request the review.</p><a class="btn" href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Check My Rental Coverage Score →</a></div></div></section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div><strong>Bay Area Landlord Insurance</strong><br />Rental Property Resource Center</div>
+      <div>Dylan Haysbert, Insurance Producer<br />Virginia Tam Insurance Agency<br />Farmers Insurance<br /><strong>Call/Text: (408) 826-2465</strong></div>
+      <div><a href="https://coveragefit.com/landlord?source=bayarealandlordinsurance">Get Rental Coverage Score</a> · <a href="https://coveragefit.com/landlord/plan?source=bayarealandlordinsurance">Request Coverage Review</a> · <a href="https://dylanhaysbert.com">About Dylan</a></div>
+    </div>
+  </footer>
+
+  <a href="https://coveragefit.com/landlord?source=bayarealandlordinsurance" class="mobile-sticky">Check Rental Score →</a>
+
+</body>
+</html>
