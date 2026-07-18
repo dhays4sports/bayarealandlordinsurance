@@ -1,0 +1,60 @@
+:root{--blue:#0755d8;--blue-dark:#071936;--red:#e31837;--text:#101827;--muted:#5f6b7a;--bg:#f4f7fb;--border:#d9e2ef;--soft-blue:#eef4ff;--shadow:0 18px 45px rgba(7,25,54,.12);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg);line-height:1.55}a{color:inherit;text-decoration:none}img{max-width:100%}.wrap{max-width:1180px;margin:0 auto;padding:0 20px}.topbar{background:var(--blue-dark);color:#fff;padding:10px 0;font-size:14px}.topbar-inner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}.nav-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;min-height:76px}.brand-wrap{display:flex;align-items:center;gap:14px;min-width:0}.farmers-badge{padding-right:14px;border-right:1px solid var(--border);display:flex;align-items:center}.farmers-badge img{height:34px;width:auto;max-width:148px;object-fit:contain;display:block}.brand{display:flex;flex-direction:column;line-height:1.15}.brand strong{color:var(--blue-dark);font-size:18px;letter-spacing:-.02em}.brand span{color:var(--muted);font-size:12px}.nav-actions{display:flex;align-items:center;gap:12px}.phone-link{color:var(--blue-dark);font-size:14px;font-weight:900;white-space:nowrap}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;border:1px solid transparent;cursor:pointer;font-weight:900;font-size:14px;transition:.2s ease;text-align:center}.btn:hover{transform:translateY(-1px)}.btn-small{padding:11px 16px;font-size:13px}.btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 28px rgba(227,24,55,.24)}.btn-light,.btn-white{background:#fff;color:var(--blue-dark)}.hero{color:#fff;background:linear-gradient(105deg,rgba(7,25,54,.98) 0%,rgba(0,58,143,.92) 47%,rgba(0,58,143,.24) 100%),url("../assets/bay-area-rental-home-hero.webp") center/cover no-repeat}.hero-grid{min-height:650px;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;padding-top:84px;padding-bottom:84px}.eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;color:#d8e7ff;font-size:13px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}.eyebrow::before{content:"";width:36px;height:3px;border-radius:999px;background:var(--red)}.eyebrow.dark{color:var(--blue)}h1{max-width:780px;margin:0;font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-.06em}.hero-lead{max-width:720px;margin:24px 0 0;color:#eef4ff;font-size:20px}.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}.hero-note{margin:18px 0 0;color:#d6e2f4;font-size:13px;line-height:1.5}.hero-card{padding:30px;background:rgba(255,255,255,.96);color:var(--text);border-radius:var(--radius);border:1px solid rgba(255,255,255,.72);box-shadow:var(--shadow)}.hero-card-label{color:var(--blue-dark);font-size:24px;font-weight:950;letter-spacing:-.035em}.check-list{list-style:none;padding:0;margin:18px 0 0}.check-list li{display:flex;gap:10px;padding:13px 0;border-bottom:1px solid var(--border)}.check-list li:last-child{border-bottom:0}.check-list span{width:23px;height:23px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;background:var(--soft-blue);color:var(--blue);font-weight:950}.section{padding:76px 0}.section-heading{max-width:790px;margin-bottom:36px}.section-heading h2,.about-copy h2,.contact-copy h2,.score-copy h2{margin:0 0 14px;color:var(--blue-dark);font-size:clamp(32px,4.5vw,50px);line-height:1.04;letter-spacing:-.045em}.section-heading p,.about-copy p,.contact-copy p,.score-copy p{margin:0;color:var(--muted);font-size:18px}.audience,.about-section{background:#fff}.card-grid{display:grid;gap:16px}.card-grid.five{grid-template-columns:repeat(5,1fr)}.info-card{padding:22px;background:var(--bg);border:1px solid var(--border);border-radius:18px}.icon{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--blue-dark);color:#fff;font-weight:950;margin-bottom:16px}.info-card h3,.review-card h3{margin:0 0 8px;color:var(--blue-dark);font-size:19px;letter-spacing:-.02em}.info-card p,.review-card p{margin:0;color:var(--muted);font-size:14px}.review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.review-card{padding:23px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 8px 22px rgba(7,25,54,.045)}.score-section{color:#fff;background:linear-gradient(135deg,var(--blue-dark),var(--blue))}.score-grid{display:grid;grid-template-columns:1fr .9fr;gap:42px;align-items:center}.score-copy h2,.score-copy p{color:#fff}.score-copy p{color:#dce9ff}.score-points{display:flex;gap:10px;flex-wrap:wrap;list-style:none;padding:0;margin:22px 0 26px}.score-points li{padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:850}.score-preview{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;padding:30px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius)}.score-ring{width:136px;height:136px;display:grid;place-items:center;border-radius:50%;background:conic-gradient(#fff 0 255deg,rgba(255,255,255,.15) 255deg 360deg);position:relative}.score-ring::after{content:"";position:absolute;width:100px;height:100px;background:var(--blue-dark);border-radius:50%}.score-ring span,.score-ring small{position:relative;z-index:1}.score-ring span{font-size:40px;font-weight:950}.score-ring small{margin-top:-48px;font-size:12px;color:#dce9ff}.score-preview h3{margin:0 0 9px;font-size:24px;letter-spacing:-.03em}.score-preview p{margin:0;color:#dce9ff}.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:42px;align-items:center}.profile-card{display:flex;align-items:center;gap:20px;padding:30px;color:#fff;background:linear-gradient(135deg,var(--blue-dark),var(--blue));border-radius:var(--radius);box-shadow:var(--shadow)}.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.72)}.profile-card h3{margin:0;font-size:27px;letter-spacing:-.03em}.profile-card p{margin:2px 0;color:#dce9ff;font-weight:800}.profile-card span{color:#dce9ff;font-size:13px}.about-copy p+p{margin-top:15px}.agency-box{margin-top:24px;padding:18px;background:var(--soft-blue);border:1px solid #d8e5fb;border-radius:16px;color:var(--muted)}.agency-box strong{display:block;color:var(--blue-dark)}.agency-box a{color:var(--blue);font-weight:900}.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:38px;align-items:start}.contact-copy{padding:32px;color:#fff;background:var(--blue-dark);border-radius:var(--radius);box-shadow:var(--shadow)}.contact-copy h2,.contact-copy p{color:#fff}.contact-copy p{color:#dce9ff}.contact-details{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18);color:#dce9ff}.contact-details strong{display:block;color:#fff;font-size:20px}.contact-details a{color:#fff;font-weight:900}.contact-form{padding:28px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 10px 28px rgba(7,25,54,.06)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;margin-bottom:6px;color:var(--blue-dark);font-size:13px;font-weight:850}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #cbd6e6;border-radius:12px;background:#fff;color:var(--text);font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(7,85,216,.10)}textarea{min-height:120px;resize:vertical}.form-note{margin:14px 0 0;color:var(--muted);font-size:12px}footer{padding:36px 0;color:#dce9ff;background:var(--blue-dark)}.footer-grid{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;font-size:14px}.footer-grid strong{display:block;color:#fff;font-size:18px}.footer-grid span{display:block;max-width:340px}.footer-grid a{color:#fff;font-weight:850}.legal{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);color:#b9c8df;font-size:12px}.mobile-sticky{display:none;position:fixed;left:14px;right:14px;bottom:14px;z-index:80;padding:15px 18px;border-radius:18px;background:var(--red);color:#fff;text-align:center;font-weight:950;box-shadow:0 16px 36px rgba(227,24,55,.34)}
+
+.meet-heading{
+  margin-bottom:30px;
+}
+
+.profile-content{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.profile-content span + span{
+  margin-top:2px;
+}
+
+.profile-phone{
+  display:inline-flex;
+  margin-top:16px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--blue-dark);
+  font-size:13px;
+  font-weight:950;
+}
+
+.contact-agent{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.18);
+}
+
+.contact-avatar{
+  width:72px;
+  height:72px;
+  flex:0 0 auto;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.72);
+}
+
+.contact-agent .contact-details{
+  margin-top:0;
+  padding-top:0;
+  border-top:0;
+}
+
+.contact-agent .contact-details a{
+  display:inline-block;
+  margin-top:7px;
+}
+
+@media(max-width:1050px){.card-grid.five{grid-template-columns:repeat(3,1fr)}.review-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.hero-grid,.score-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.nav-actions .phone-link{display:none}.hero-grid{min-height:auto}}
+@media(max-width:680px){.topbar{display:none}.nav-inner{min-height:70px}.farmers-badge{display:none}.brand span{display:none}.nav-actions .btn{display:none}.hero-grid{padding-top:58px;padding-bottom:58px}.hero{background:linear-gradient(105deg,rgba(7,25,54,.98),rgba(0,58,143,.72)),url("../assets/bay-area-rental-home-hero.webp") center/cover no-repeat}h1{font-size:43px}.hero-lead{font-size:18px}.hero-actions,.hero-actions .btn{width:100%}.card-grid.five,.review-grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.score-preview{grid-template-columns:1fr}.profile-card{align-items:flex-start;flex-direction:column}.contact-agent{align-items:flex-start}.contact-avatar{width:64px;height:64px}.mobile-sticky{display:block}footer{padding-bottom:92px}}
